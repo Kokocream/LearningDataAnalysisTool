@@ -1,18 +1,31 @@
 # Learning Data Analysis Tool
 
-功能：数据结果的可视化 聚类分析结果
+> By コ ジョウカ
 
-框架：Django+Flask
 
-语言：Python
 
-工具：Echarts
+- 功能：数据结果的可视化 聚类分析结果
 
-环境：Anaconda
+- 框架：Django+Flask
+- 语言：Python
+- 工具：Echarts
+- 环境：Anaconda
+- DB：MySQL
+- IDE：VSCode
 
-DB：MySQL
 
-IDE：VSCode
+
+```python
+print("Learning Data Analysis Tool")
+```
+
+```go 
+func main(){
+  fmt.Println("abc")
+}
+```
+
+
 
 
 
