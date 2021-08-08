@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: "Noto Serif JP",sans-serif;
+    box-sizing: border-box;
+}
+
+.navbar{
+    position: fixed;
+    background-color: transparent;
+    width: 100%;
+    padding: 30px 0;
+    top: 0;
+    z-index: 999;
+    transition: .3s linear;
+}
+
+.inner-width{
+    max-width: 1300px;
+    margin: auto;
+    padding: 0 40px;
+}
+
+.navbar .inner-width{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 44px;
+    height: 32px;
+    background-image: url(../images/580675_377486989022073_1123779694_n.jpg);
+    background-size: contain;
+}
+
+.menu-toggler{
+    background: none;
+    width: 30px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    z-index: 999;
+    display: none;
+}
+
+.menu-toggler span{
+    display: block;
+    height: 3px;
+    background-color: rgb(250, 250, 250);
+    margin: 6px 0;
+    position: relative;
+    transition: .3s linear;
+}
+
+.navbar-menu a{
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 30px;
+    transition: .2s linear;
+}
+
+.navbar-menu a:hover{
+    color: #48dbfb;
+}
+
+/* .sticky{
+    background-color: #000000;
+    padding: 18px 0;
+    background-attachment: fixed;
+} */
+
+.sticky .logo .a{
+    color: #fff;
+    font-size: 22px;
+    margin: 0 10px;
+    transition: .2s linear;
+}
+
+#home{
+    height: 100px;
+    min-height: 1100px;
+    background:  #000 center ;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#home .inner-width{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+#home .content{
+    width: 100%;
+    color: #fff;
+}
+
+#home .content h1{
+    font-size: 60px;
+    margin-bottom: 60px;
+}
+
+#home .content h1::after{
+    content: "A Visualization Tool";
+    animation: textanim 10s linear infinite;
+}
+
+@keyframes textanim{
+    25%{
+        content: "A Teacher";
+    }
+    50%{
+        content: "A Mentor";
+    }
+    75%{
+        content: "A Supervisor";
+    }
+    100%{
+        content: "A Helper";
+    }
+}
+
+.sm a{
+    color: #fff;
+    font-size: 22px;
+    margin: 0 10px;
+    transition: .2s linear;
+}
+
+.sm a:hover{
+    color: #48dbfb;
+}
+
+#home .buttons{
+    margin-top: 60px;
+}
+
+#home .buttons a{
+    display: inline-block;
+    margin: 15px 30px;
+    color: #48dbfb;
+    font-size: 15px;
+    font-weight: 500;
+    width: 180px;
+    border: 1px solid #48dbfb; 
+    padding: 14px 0;
+    border-radius: 6px;
+    transition: .2s linear;
+}
+
+#home .buttons a:hover
+{
+    background-color: #226777;
+}
