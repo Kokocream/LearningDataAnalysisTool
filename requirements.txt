@@ -1,0 +1,6 @@
+Flask==2.0.1
+# Keras==2.2.4
+# numpy==1.14.3
+# pandas==0.23.0
+# tensorflow==1.9.0
+Python==3.9.6
