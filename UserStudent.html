@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LDAT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <script src="js/scripts.js"></script>
+    <!-- <script src="js/input.js"></script> -->
+    <!-- <script>
+        const input = document.querySelector('input');
+        const preview = document.querySelector('.preview');
+        input.style.opacity = 0;
+    </script> -->
+</head>
+<body>
+    <!-- Navbar-->
+    <nav class="navbar sticky">
+        <div class="inner-width">
+            <div class="sm">
+                <a href="#" class="fab fa-airbnb"></a>
+            </div>    
+            <div class="navbar-menu">
+                <a href="#" style="color: plum;font-weight:bolder;">＊学習者＊</a>
+                <a href="#">江戸川 コナン さん、ようこそ！</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home-->
+    <section id="home">
+        <div class="inner-width">
+            <div class="content">
+                <h1>AITA は  </h1>
+                <div class="sm">
+                    <a href="#" class="fab fa-weibo"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-github"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-tiktok"></a>
+                    <a href="#" class="fab fa-qq"></a>
+                </div>
+                <div class="buttons">
+                    <!-- <a href="#">レポートをアップロード</a> -->
+                    <label for="uploads">アップロード</label>
+                    <!-- <a href="#">使い方について</a> -->
+                    <input type="file" id="uploads" name="uploads" accept=".csv,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" multiple>
+                    <a href="#">提出する</a>
+                </div>
+                <div class="preview">
+                    <p>プレビュー表示</p>
+                </div>
+                <div class="buttons">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const input = document.querySelector('input');
+        const preview = document.querySelector('.preview');
+    
+        input.style.opacity = 0;
+    
+        input.addEventListener('change', updateImageDisplay);
+    
+        function updateImageDisplay() {
+          while(preview.firstChild) {
+            preview.removeChild(preview.firstChild);
+          }
+    
+          const curFiles = input.files;
+          if(curFiles.length === 0) {
+            const para = document.createElement('p');
+            para.textContent = 'レポートを提出してください。';
+            preview.appendChild(para);
+          } else {
+            const list = document.createElement('ol');
+            preview.appendChild(list);
+    
+            for(const file of curFiles) {
+              const listItem = document.createElement('li');
+              const para = document.createElement('p');
+    
+              if(validFileType(file)) {
+                para.textContent = `ファイル名： ${file.name}, サイズ： ${returnFileSize(file.size)}.`;
+                // const image = document.createElement('img');
+                // image.src = URL.createObjectURL(file);
+    
+                // listItem.appendChild(image);
+                listItem.appendChild(para);
+              } else {
+                para.textContent = ` ${file.name}: ファイル形式またはファイル拡張子が正しくありません。`;
+                listItem.appendChild(para);
+              }
+    
+              list.appendChild(listItem);
+            }
+          }
+        }
+    
+    // https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types
+        const fileTypes = [
+            'application/msword',
+            'text.csv',
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document'            
+            // 'image/bmp',
+            // 'image/gif',
+            // 'image/jpeg',
+            // 'image/pjpeg',
+            // 'image/png',
+            // 'image/svg+xml',
+            // 'image/tiff',
+            // 'image/webp',
+            // `image/x-icon`
+        ];
+    
+        function validFileType(file) {
+          return fileTypes.includes(file.type);
+        }
+    
+        function returnFileSize(number) {
+          if(number < 1024) {
+            return number + 'bytes';
+          } else if(number > 1024 && number < 1048576) {
+            return (number/1024).toFixed(1) + 'KB';
+          } else if(number > 1048576) {
+            return (number/1048576).toFixed(1) + 'MB';
+          }
+        }
+      </script>
+</body>
+</html>
